@@ -1,0 +1,14 @@
+a.btn.btnColor.flex.items-center.justify-center.space-x-2 {}a.btn.btnColor.flex.items-center.justify-center.space-x-2 {}
+
+a.btn.btnColor.flex.items-center.justify-center.space-x-2 {}.btn[data-v-104d3fc5] {
+    border-radius: 1rem;
+    padding: 1rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+.children[data-v-104d3fc5]{
+        background: rgba(28,30,35,1);
+    padding: 1rem;
+    border-radius: 1rem;
+    position: relative;
+}

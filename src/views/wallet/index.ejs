@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" translate="no" data-dpr="1" dir="ltr" style="font-size: 39.4px;">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.png">
+  <meta name="google" content="notranslate">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>57 Club</title>
+    <link rel="stylesheet" href="/HASH/assets/index.09a146d4.css">
+    <link rel="stylesheet" href="/HASH/assets/index.8e36907c.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body theme="dark" class="mobile">
+    <div id="app" data-v-app="">
+        <div class="appMain en-US disable-select">
+            <div class="van-config-provider">
+                <div data-v-0ec9ceac="" class="betRecord en-US">
+                    <div class="van-nav-bar van-nav-bar--fixed van-safe-area-top"
+                        style="z-index: 111; background: transparent; backdrop-filter: blur(5px);">
+                        <div class="van-nav-bar__content">
+                            <div onclick="location.href='/mian'" class="van-nav-bar__left van-haptics-feedback"><i
+                                    class="ri-arrow-left-line text-[2.5rem] color-white"></i></div>
+                            <div class="van-nav-bar__title van-ellipsis">Wallet Records</div>
+                            <div class="van-nav-bar__right van-haptics-feedback"></div>
+                        </div>
+                    </div><!---->
+                    <div data-v-0ec9ceac="" class="infoBg flex items-center justify-between">
+                        <div data-v-0ec9ceac="" class="flex items-center justify-between space-x-6 infos">
+                            <div data-v-0ec9ceac=""><span data-v-0ec9ceac="" class="opacity-50">Total Deposit:</span>
+                                <div data-v-7b283485="" id="totalRecharge">₹0.00</div>
+                            </div><span data-v-0ec9ceac="">/</span>
+                            <div data-v-0ec9ceac=""><span data-v-0ec9ceac="" class="opacity-50">Total Withdraw:</span>
+                                <div data-v-7b283485="" id="totalWithdraw">₹0.00</div>
+                            </div>
+                        </div>
+                        <div data-v-0ec9ceac="" modelvalue="[object Object]">
+                            <div>
+                                <div data-v-0ec9ceac="" class="filerTag"><span data-v-0ec9ceac="">All Time</span><i
+                                        data-v-0ec9ceac="" class="ri-arrow-down-s-line"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-v-0ec9ceac="" class="orderBox grid grid-cols-2 gap-6"><a data-v-0ec9ceac=""
+                            href="/wallet/rechargerecord" class="item space-y-1"
+                            style="background-image: linear-gradient(rgb(255, 52, 164) 0%, rgb(255, 176, 110) 100%);">
+                            <div data-v-0ec9ceac="">Recharge Record</div>
+                            <div data-v-0ec9ceac="" class="b text-3xl">
+                            </div>
+                            <div data-v-0ec9ceac=""></div>
+                        </a><a data-v-0ec9ceac="" href="/wallet/withdrawalrecord" class="item space-y-1"
+                            style="background-image: linear-gradient(rgb(77, 131, 255) 0%, rgb(187, 137, 255) 100%);">
+                            <div data-v-0ec9ceac="">Withdraw Record</div>
+                            <div data-v-0ec9ceac="" class="b text-3xl">
+                            </div>
+                            <div data-v-0ec9ceac=""></div>
+                        </a></div>
+                </div>
+            </div>
+            
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/js/client.js"></script>
+    <script>
+   
+            $(document).ready(function() {
+                $.ajax({
+                    type: "GET",
+                    url: "/api/webapi/GetUserInfo",
+                    dataType: "json",
+                    success: function (response) {
+                        let user = response.data;
+                        $('.wallet-user .name').text(user.name_user);
+                        $('.money').text("₹" + user.money_user);
+                        $('#tpm').text("₹" + user.third_party_money + ".00");
+                        $('.box').find('.money').text("₹" + user.third_party_money + ".00")
+                        $('.box').find('.money').first().text("₹" + user.money_user)
+                        
+                        
+                     
+                        
+                        // Display total withdraw and total deposit amounts
+                        $('#totalWithdraw').text("₹" + response.totalWithdraw + ".00");
+                        $('#totalRecharge').text("₹" + response.totalRecharge + ".00");
+                        
+                       
+                    }
+                });
+            
+                // Set initial values for total withdraw and total deposit
+                $('.total.total-withdraw').text("₹0.00");
+                $('.total.total-deposit').text("₹0.00");
+            });
+            
+    </script>
+</body>
+
+</html>
